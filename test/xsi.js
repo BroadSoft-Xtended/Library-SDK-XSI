@@ -1,14 +1,10 @@
-var test = require('../node_modules/webrtc-core/test/includes/common_core');
-var extend = require('extend');
-var chai = require("chai");
-chai.use(require("chai-as-promised"));
-var should = chai.should();
-
+test = require('bdsft-sdk-test').model;
 describe('xsi', function() {
 
   before(function() {
     test.createModelAndView('xsi', {
         xsi: require('../'),
+        debug: require('bdsft-sdk-debug'),
         request: require('bdsft-sdk-request')
     });
     global.window = undefined;
