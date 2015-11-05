@@ -25,6 +25,18 @@ describe('xsi', function() {
     });
   });
 
+  describe('connect with login token', function(){
+    var token;
+    before(function() {
+      return xsi.connect(config.user, config.password).loginToken().then(function(result){
+        token = result.token;
+      });
+    });
+    it('userProfile', function() {
+      return xsi.connect(config.user, null, token).userProfile().should.eventually.have.deep.property('details.userId');
+    });
+  });
+
   describe('connect', function(){
     before(function(){
       xsi.enabled = true;
@@ -45,10 +57,6 @@ describe('xsi', function() {
 
     it('userAccessDevices', function() {
       return client.userAccessDevices().should.eventually.have.length.above('0');
-    });
-
-    it('loginToken', function() {
-      return client.loginToken().should.eventually.have.property('token');
     });
 
     it('userProfile', function() {
