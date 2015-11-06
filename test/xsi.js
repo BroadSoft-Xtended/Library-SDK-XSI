@@ -26,14 +26,17 @@ describe('xsi', function() {
   });
 
   describe('connect with login token', function(){
-    var token;
+    var client;
     before(function() {
       return xsi.connect(config.user, config.password).loginToken().then(function(result){
-        token = result.token;
+        client = xsi.connect(config.user, null, result.token)
       });
     });
     it('userProfile', function() {
-      return xsi.connect(config.user, null, token).userProfile().should.eventually.have.deep.property('details.userId');
+      return client.userProfile().should.eventually.have.deep.property('details.userId');
+    });
+    it('userDirectoryEnterprise with search params', function() {
+      return client.userDirectoryEnterprise({impId: '*broadsoftlabs.com*'}).should.eventually.have.property('totalAvailableRecords').above(0);
     });
   });
 
