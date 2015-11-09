@@ -33,7 +33,10 @@ describe('xsi', function() {
       });
     });
     it('userProfile', function() {
-      return client.userProfile().should.eventually.have.deep.property('details.userId');
+      return client.userProfile().then(function(result){
+        expect(client.jsessionid).toExist();
+        return result;
+      }).should.eventually.have.deep.property('details.userId');
     });
     it('userDirectoryEnterprise with search params', function() {
       return client.userDirectoryEnterprise({impId: '*broadsoftlabs.com*'}).should.eventually.have.property('totalAvailableRecords').above(0);
