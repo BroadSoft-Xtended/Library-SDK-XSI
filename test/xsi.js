@@ -30,6 +30,7 @@ describe('xsi', function() {
     before(function() {
       return xsi.connect(config.user, config.password).loginToken().then(function(result){
         client = xsi.connect(config.user, null, result.token)
+        client.xspUrl = config.xsp1;
       });
     });
     it('userProfile', function() {
@@ -39,6 +40,10 @@ describe('xsi', function() {
       }).should.eventually.have.deep.property('details.userId');
     });
     it('userDirectoryEnterprise with search params', function() {
+      return client.userDirectoryEnterprise({impId: '*broadsoftlabs.com*'}).should.eventually.have.property('totalAvailableRecords').above(0);
+    });
+    it('userDirectoryEnterprise on other xsp', function() {
+      client.xspUrl = config.xsp2;
       return client.userDirectoryEnterprise({impId: '*broadsoftlabs.com*'}).should.eventually.have.property('totalAvailableRecords').above(0);
     });
   });

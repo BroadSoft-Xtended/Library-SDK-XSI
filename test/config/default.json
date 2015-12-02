@@ -1,4 +1,6 @@
 {
+  "xsp1": "https://xsp.broadsoftlabs.com",
+  "xsp2": "https://xsp.broadsoftlabs.com",
   "user": "testuser@domain.com",
   "password" : "testpassword"
 }
