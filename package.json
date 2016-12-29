@@ -8,14 +8,14 @@
   },
   "dependencies": {
     "q": "1.4.1",
-    "bdsft-sdk-request": "BroadSoft-Xtended/Library-SDK-Request.git",
-    "bdsft-sdk-model": "BroadSoft-Xtended/Library-SDK-Model.git",
-    "bdsft-sdk-utils": "BroadSoft-Xtended/Library-SDK-Utils.git",
-    "bdsft-sdk-debug": "BroadSoft-Xtended/Library-SDK-Debug.git",
+    "bdsft-sdk-request": "BroadSoft-Xtended/Library-SDK-Request",
+    "bdsft-sdk-model": "BroadSoft-Xtended/Library-SDK-Model",
+    "bdsft-sdk-utils": "BroadSoft-Xtended/Library-SDK-Utils",
+    "bdsft-sdk-debug": "BroadSoft-Xtended/Library-SDK-Debug",
     "xml2js": "0.4.9"
   },
   "devDependencies": {
-    "bdsft-sdk-test": "BroadSoft-Xtended/Library-SDK-Test.git"
+    "bdsft-sdk-test": "BroadSoft-Xtended/Library-SDK-Test"
   },
   "repository": {
     "type": "git",
